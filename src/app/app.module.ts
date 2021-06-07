@@ -10,13 +10,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HomeComponent} from './components/home/home.component';
 import {ReposComponent} from './components/repos/repos.component';
 import {UsersListItemComponent} from './components/home/users-list-item/users-list-item.component';
+import {SearchInputComponent} from './components/home/search-input/search-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ReposComponent,
-    UsersListItemComponent
+    UsersListItemComponent,
+    SearchInputComponent
   ],
   imports: [
     BrowserModule,

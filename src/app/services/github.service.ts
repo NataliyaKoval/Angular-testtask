@@ -7,17 +7,21 @@ import {Repo} from "../interfaces/repo";
   providedIn: 'root'
 })
 export class GithubService {
-  rootUrl = 'https://api.github.com/users';
+  rootUrl = 'https://api.github.com';
 
   constructor(private http: HttpClient) {
   }
 
   public getUsers() {
-    return this.http.get<User[]>(this.rootUrl);
+    return this.http.get<User[]>(`${this.rootUrl}/users`);
   }
 
   public getRepos(login: string) {
-    return this.http.get<Repo[]>(`${this.rootUrl}/${login}/repos`);
+    return this.http.get<Repo[]>(`${this.rootUrl}/users/${login}/repos`);
   }
 
+  public getNewUser(username: string) {
+    let params = {q: username};
+    return this.http.get<any>(`${this.rootUrl}/search/users`, {params});
+  }
 }

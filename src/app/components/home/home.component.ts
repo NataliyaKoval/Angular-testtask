@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+
 import {GithubService} from "../../services/github.service";
 import {User} from "../../interfaces/user";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-home',
@@ -20,4 +22,16 @@ export class HomeComponent implements OnInit {
       })
   }
 
+  onSearch(username) {
+    this.githubService.getNewUser(username)
+      .pipe(
+        map(v => {
+          return v.items;
+        })
+      )
+      .subscribe(value => {
+        let newUsers = value;
+        this.users = [...this.users, ...newUsers];
+      })
+  }
 }
