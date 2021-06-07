@@ -1,0 +1,13 @@
+.user-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: 150px;
+  grid-gap: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.avatar {
+  height: 130px;
+}

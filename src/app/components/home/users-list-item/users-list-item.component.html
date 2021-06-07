@@ -1,0 +1,5 @@
+<a class="user-info" routerLink="/repos/{{user?.login}}">
+  <img [src]="user?.avatar_url" class="avatar">
+  <p>{{user?.login | uppercase}}</p>
+</a>
+
