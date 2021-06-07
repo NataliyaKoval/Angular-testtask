@@ -5,6 +5,8 @@ import {CommonModule} from '@angular/common';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import {HomeComponent} from './components/home/home.component';
 import {ReposComponent} from './components/repos/repos.component';
 import {UsersListItemComponent} from './components/home/users-list-item/users-list-item.component';
@@ -20,7 +22,8 @@ import {UsersListItemComponent} from './components/home/users-list-item/users-li
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
