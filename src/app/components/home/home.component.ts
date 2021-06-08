@@ -11,6 +11,7 @@ import {map} from "rxjs/operators";
 })
 export class HomeComponent implements OnInit {
   users: Array<User> = [];
+  errorMessage = '';
 
   constructor(private githubService: GithubService) {
   }
@@ -32,6 +33,9 @@ export class HomeComponent implements OnInit {
       .subscribe(value => {
         let newUsers = value;
         this.users = [...this.users, ...newUsers];
+      }, (err) => {
+        this.errorMessage = err.message;
+        console.log(this.errorMessage)
       })
   }
 }

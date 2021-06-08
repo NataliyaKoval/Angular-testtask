@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {fromEvent} from "rxjs";
 import {debounceTime, distinctUntilChanged, filter, pluck} from "rxjs/operators";
 
@@ -10,7 +10,7 @@ import {debounceTime, distinctUntilChanged, filter, pluck} from "rxjs/operators"
 export class SearchInputComponent implements OnInit, AfterViewInit {
   @ViewChild('searchInput') searchInput!: ElementRef;
   @Output() searchTerm: EventEmitter<string> = new EventEmitter<string>();
-  errorMessage = '';
+  @Input() errorMessage = '';
 
   constructor() {
   }
@@ -28,8 +28,6 @@ export class SearchInputComponent implements OnInit, AfterViewInit {
       )
       .subscribe((value) => {
         this.searchTerm.emit(value);
-      }, (err) => {
-        this.errorMessage = err.message;
       });
   }
 }

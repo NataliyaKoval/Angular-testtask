@@ -1,3 +1,4 @@
 <form>
-  <input #searchInput class="form-control" type="text">
+  <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
+  <input #searchInput [ngClass]="{'red-border' : errorMessage}" class="form-control" type="text">
 </form>
